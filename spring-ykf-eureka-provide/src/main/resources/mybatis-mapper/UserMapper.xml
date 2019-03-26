@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spring.cloud.ykf.eureka.provide.main.mapper.UserMapper">
+    <select id="findUser" parameterType="java.lang.Long"
+			resultType="spring.cloud.ykf.eureka.provide.main.entry.User">
+		select id,user_name as userName,pswd from s_user where id = #{id}
+	</select>
+    <insert id="saveUser" parameterType="spring.cloud.ykf.eureka.provide.main.entry.User">
+		insert into s_user(uname,pwd)
+		values(#{uname},#{pwd})
+	</insert>
+    <delete id="deleteUser" parameterType="java.lang.Long">
+		delete from s_user where id = #{id}
+	</delete>
+</mapper>
